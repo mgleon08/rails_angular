@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :name]
 
   # GET /users
   # GET /users.json
@@ -63,6 +63,10 @@ class UsersController < ApplicationController
 
   def count
     render json: { count: User.count }
+  end
+
+  def name
+    render json: { name: @user.full_name }
   end
 
   private
