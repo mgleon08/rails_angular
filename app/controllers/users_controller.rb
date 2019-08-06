@@ -62,11 +62,13 @@ class UsersController < ApplicationController
   end
 
   def count
-    render json: { count: User.count }
+    @count = User.count
+    render "count.json"
   end
 
   def name
-    render json: { name: @user.full_name }
+    @full_name = @user.full_name
+    render "name.json"
   end
 
   private
