@@ -10,6 +10,8 @@ class User
   validates :age, numericality: { greater_than: 0 }
   validates :gender, inclusion: { in: %w(male female others) }
 
+  has_one :shop
+
   def full_name
     "#{first_name} #{last_name}"
   end
