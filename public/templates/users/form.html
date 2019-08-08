@@ -1,4 +1,4 @@
-<form name="userForm" ng-submit="userForm.$valid && updateUser()">
+<form name="userForm" ng-submit="userForm.$valid && updateUser(user)">
   <div>
     <label for="first_name"> First Name: </label>
     <input type="text" id="first_name" name="firstName" ng-model="user.first_name" required >
@@ -43,4 +43,3 @@
     <button type="submit" ng-disabled="userForm.$invalid">Submit Form</button>
   </div>
 </form>
-

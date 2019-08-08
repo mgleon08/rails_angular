@@ -23,9 +23,9 @@ app.controller("UsersIndexController", function($scope, UserService) {
 
   $scope.showUserEdit = false;
 
-  $scope.editUser = function(userID) {
-    $scope.showUserEdit = true;
-    $scope.$broadcast("editUser", userID);
+  $scope.editUser = function(user) {
+    $scope.showUserEdit = !$scope.showUserEdit;
+    $scope.selectedUser = user;
   };
 
   getUsers();
