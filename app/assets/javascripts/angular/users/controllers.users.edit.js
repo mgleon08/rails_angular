@@ -1,20 +1,21 @@
 app.controller('UsersEditController',
-  ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
+  ['$scope', '$stateParams', '$window', 'UserService',
+  function($scope, $stateParams, $window, UserService){
     var userID = $stateParams.id
     var getUser = function(){
-      $http.get('/users/' + userID).then(
-        function success(response) {
+      UserService.getUser(userID).then(
+        function(response) {
           $scope.user = response.data;
-        }, function error(response) {
+        }, function(response) {
           alert('get user info error')
         }
       );
     };
     $scope.updateUser = function(){
-      $http.put('/users/' + userID, { user: $scope.user }).then(
-        function success(response) {
+      UserService.updateUser(userID, $scope.user).then(
+        function(response) {
           $window.location.href = '/users/' + userID;
-        }, function error(response) {
+        }, function(response) {
           alert('update error')
         }
       );
