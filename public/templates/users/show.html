@@ -1,0 +1,26 @@
+<h1>Show</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Country</th>
+      <th>Address1</th>
+      <th>Address2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td>{{ user.first_name }}</td>
+    <td>{{ user.last_name }}</td>
+    <td>{{ user.age }}</td>
+    <td>{{ user.gender }}</td>
+    <td>{{ user.address.country }}</td>
+    <td>{{ user.address.address_1 }}</td>
+    <td>{{ user.address.address_2 }}</td>
+  </tbody>
+</table>
+
+<button ui-sref="users">User List</button>

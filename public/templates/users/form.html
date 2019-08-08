@@ -1,0 +1,46 @@
+<form name="userForm" ng-submit="userForm.$valid && updateUser()">
+  <div>
+    <label for="first_name"> First Name: </label>
+    <input type="text" id="first_name" name="firstName" ng-model="user.first_name" required >
+    <span class="userForm__invalidMassage" ng-show="userForm.firstName.$invalid"> First Name can not be empty  </span>
+  </div>
+  <br>
+  <div>
+    <label for="last_name"> Last Name: </label>
+    <input type="text" id="last_name" name="lastName" ng-model="user.last_name" required >
+    <span class="userForm__invalidMassage" ng-show="userForm.lastName.$invalid"> Last Name can not be empty </span>
+  </div>
+  <br>
+  <div>
+    <label for="age"> Age: </label>
+    <input type="number" id="age" name="age" ng-model="user.age" min="1" required >
+    <span class="userForm__invalidMassage" ng-show="userForm.age.$invalid"> Age should greater than 0 </span>
+  </div>
+  <br>
+  <div>
+    <label for="gender"> Gender: </label>
+    <input type="text" id="gender" name="gender" ng-model="user.gender" ng-pattern="/^(male|female|others)$/" required >
+    <span class="userForm__invalidMassage" ng-show="userForm.gender.$error.required"> Required! </span>
+    <span class="userForm__invalidMassage" ng-show="userForm.gender.$dirty && userForm.gender.$error.pattern"> Should inclusion one of male, female or others </span>
+  </div>
+  <br>
+  <div>
+    <label for="country"> Country: </label>
+    <input type="text" id="country" name="country" ng-model="user.address.country" >
+  </div>
+  <br>
+  <div>
+    <label for="address1"> Address1: </label>
+    <input type="text" id="address1" name="address1" ng-model="user.address.address_1" >
+  </div>
+  <br>
+  <div>
+    <label for="address2"> Address2: </label>
+    <input type="text" id="address2" name="address1" ng-model="user.address.address_2" >
+  </div>
+  <br>
+  <div>
+    <button type="submit" ng-disabled="userForm.$invalid">Submit Form</button>
+  </div>
+</form>
+

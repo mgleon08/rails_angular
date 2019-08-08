@@ -1,0 +1,29 @@
+<h1>Index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Edit</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users">
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.gender }}</td>
+      <td><button ui-sref="users_show({ id: user.id.$oid })">Show User</button></td>
+      <td><button ng-click="editUser(user.id.$oid)">Edit User</button></td>
+      <td><button ng-click="deleteUser(user.id.$oid)">Delete User</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<user-form ng-show="showUserEdit"></user-form>
+
+<button ui-sref="users_new">New User</button>
