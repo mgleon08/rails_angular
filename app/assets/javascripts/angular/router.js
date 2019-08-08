@@ -20,7 +20,6 @@ app.config([
     })
     .state('users_new', {
       url: '/users/new',
-      controller: 'UsersNewController',
       templateUrl: '/templates/users/new.html'
     })
     .state('users_edit', {

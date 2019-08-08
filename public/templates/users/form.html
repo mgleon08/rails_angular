@@ -1,4 +1,4 @@
-<form name="userForm" ng-submit="userForm.$valid && updateUser(user)">
+<form name="userForm" ng-submit="userForm.$valid && createOrUpdateUser()">
   <div>
     <label for="first_name"> First Name: </label>
     <input type="text" id="first_name" name="firstName" ng-model="user.first_name" required >
