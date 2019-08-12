@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  root "home#index"
-  resources :users do
-    resources :shops
-    collection { get :count }
-    member { get :name }
+  scope path: '/api/', defaults: { format: :json } do
+    resources :users do
+      resources :shops
+      collection { get :count }
+      member { get :name }
+    end
   end
+  root "home#index"
+  get '*path', to: 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

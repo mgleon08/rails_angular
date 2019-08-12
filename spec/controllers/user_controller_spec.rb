@@ -13,41 +13,22 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #index" do
     it "response with status code 200" do
-      get :index
+      get :index, format: :json
       expect(response).to have_http_status(200)
     end
   end
 
   describe "GET #show" do
     it "when show with a existing user" do
-      get :show, id: user.id
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "GET #new" do
-    it "response with status code 200" do
-      get :new
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "GET #edit" do
-    it "response with status code 200" do
-      get :edit, id: user.id
+      get :show, id: user.id, format: :json
       expect(response).to have_http_status(200)
     end
   end
 
   describe "POST #create" do
-    it "response with status code 302" do
+    it "response with status code 200" do
       post :create, user: params
-      expect(response).to have_http_status(302)
-    end
-
-    it "redirect to show page" do
-      post :create, user: params
-      expect(response).to redirect_to(action: :show, id: User.last.id)
+      expect(response).to have_http_status(200)
     end
 
     it "when create with valid params" do
@@ -60,14 +41,9 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "PUT #update" do
-    it "response with status code 302" do
+    it "response with status code 200" do
       put :update, id: user.id, user: params
-      expect(response).to have_http_status(302)
-    end
-
-    it "redirect to show page" do
-      put :update, id: user.id, user: params
-      expect(response).to redirect_to(action: :show, id: user.id)
+      expect(response).to have_http_status(200)
     end
 
     it "when update with valid params" do
@@ -82,14 +58,9 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "response with status code 302" do
+    it "response with status code 200" do
       delete :destroy, id: user.id
-      expect(response).to have_http_status(302)
-    end
-
-    it "redirect to index page" do
-      delete :destroy, id: user.id
-      expect(response).to redirect_to(action: :index)
+      expect(response).to have_http_status(200)
     end
 
     it "when delete with a existing user" do
