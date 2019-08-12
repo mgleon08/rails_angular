@@ -43,12 +43,12 @@ class UsersController < ApplicationController
 
   def count
     @count = User.count
-    render "count.json"
+    render 'count.json'
   end
 
   def name
     @full_name = @user.full_name
-    render "name.json"
+    render 'name.json'
   end
 
   private
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
         :last_name,
         :age,
         :gender,
-        :address => [:country, :address_1, :address_2]
+        address: [:country, :address_1, :address_2]
       )
     end
 end

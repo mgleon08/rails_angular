@@ -1,4 +1,4 @@
-app.controller("UsersShowController", function(
+app.controller('UsersShowController', function(
   $scope,
   $stateParams,
   UserService
@@ -11,7 +11,7 @@ app.controller("UsersShowController", function(
         $scope.user = response.data;
       },
       function(response) {
-        alert("Get user error");
+        alert('Get user error');
       }
     );
   };

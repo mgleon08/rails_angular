@@ -1,18 +1,18 @@
-app.directive("userForm", function($window) {
+app.directive('userForm', function($window) {
   return {
-    restrict: "E",
+    restrict: 'E',
     scope: {
-      user: "=",
-      showEdit: "=",
+      user: '=',
+      showEdit: '=',
     },
     controller: function controller($scope, UserService) {
       var update = function(){
         UserService.updateUser($scope.user.id.$oid, $scope.user).then(
           function(response) {
-            alert("update success");
+            alert('update success');
           },
           function(response) {
-            alert("update error");
+            alert('update error');
           }
         );
       }
@@ -20,10 +20,10 @@ app.directive("userForm", function($window) {
       var create = function(){
         UserService.createUser($scope.user).then(
           function(response) {
-            $window.location.href = "/users";
+            $window.location.href = '/users';
           },
           function(response) {
-            alert("Create user error");
+            alert('Create user error');
           }
         );
       }
@@ -37,6 +37,6 @@ app.directive("userForm", function($window) {
         };
       };
     },
-    templateUrl: "/templates/users/form.html"
+    templateUrl: '/templates/users/form.html'
   };
 });

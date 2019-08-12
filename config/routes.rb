@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       member { get :name }
     end
   end
-  root "home#index"
+  root 'home#index'
   get '*path', to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

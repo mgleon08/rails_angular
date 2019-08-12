@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:first_name) }
     it { is_expected.to validate_presence_of(:last_name) }
     it { is_expected.to validate_numericality_of(:age).greater_than(0) }
-    it { is_expected.to validate_inclusion_of(:gender).to_allow("male", "female", "others") }
+    it { is_expected.to validate_inclusion_of(:gender).to_allow('male', 'female', 'others') }
   end
 
   describe 'relation' do
