@@ -13,9 +13,13 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /api/users' do
     it 'response with status code 200' do
+      new_user = user
       get '/api/users'
       expect(response.content_type).to eq('application/json')
       expect(response).to have_http_status(200)
+      format_response = JSON.parse(response.body)
+      expect(response.body).to include(user.id)
+      expect(format_response.class).to eq(Array)
     end
   end
 
@@ -24,6 +28,7 @@ RSpec.describe 'Users', type: :request do
       get "/api/users/#{user.id}"
       expect(response.content_type).to eq('application/json')
       expect(response).to have_http_status(200)
+      expect(response.body).to include(user.id)
     end
   end
 

@@ -14,9 +14,11 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #index' do
     it 'response with status code 200' do
+      new_user = user
       get :index, format: :json
       expect(response.content_type).to eq('application/json')
       expect(response).to have_http_status(200)
+      expect(assigns(:users)).to eq([user])
     end
   end
 
@@ -25,6 +27,7 @@ RSpec.describe UsersController, type: :controller do
       get :show, id: user.id, format: :json
       expect(response.content_type).to eq('application/json')
       expect(response).to have_http_status(200)
+      expect(assigns(:user)).to eq(user)
     end
   end
 
@@ -85,8 +88,7 @@ RSpec.describe UsersController, type: :controller do
     it 'should response with right count number' do
       new_user = user
       get :count
-      format_response = JSON.parse(response.body).with_indifferent_access
-      expect(format_response[:count]).to eq(1)
+      expect(assigns(:count)).to eq(1)
     end
   end
 
